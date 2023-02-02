@@ -1,5 +1,8 @@
 # devops-netology
-Start learning DevOps
+
+###Start learning DevOps
+
+Строка при создании новой ветки
 
 Согласно файлу .gitignore Terraform будут:
 Проигнорированы все директории и поддиректории, включая все файлы директории .terraform.
