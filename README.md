@@ -1,6 +1,6 @@
 # devops-netology
 
-###Start learning DevOps
+##Start learning DevOps
 
 Строка при создании новой ветки
 
