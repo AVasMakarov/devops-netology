@@ -48,8 +48,6 @@ cook_book = [
 person = 5
 for dish,receipt in cook_book:
     print(dish.capitalize() + ':')
-    # print(receipt)
     for ingridients in receipt:
         print(f'{ingridients[0]}, {str(ingridients[1]*person)}{ingridients[2]}')
     print()
-    # for ingridients in dish:
