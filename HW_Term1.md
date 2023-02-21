@@ -11,15 +11,13 @@
 			config.vm.box = "bento/ubuntu-20.04"
 		end
 		```
-
-    ![Создал ВМ] (https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term1/1.JPG?raw=true)
-
+    ![](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term1/1.JPG?raw=true)
 	* Выполнение в этой директории `vagrant up` установит провайдер VirtualBox для Vagrant, скачает необходимый образ и запустит виртуальную машину.
-
+    ![](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term1/2.JPG?raw=true)
 	* `vagrant suspend` выключит виртуальную машину с сохранением ее состояния (т.е., при следующем `vagrant up` будут запущены все процессы внутри, которые работали на момент вызова suspend), `vagrant halt` выключит виртуальную машину штатным образом.
-
+    ![](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term1/3.JPG?raw=true)
 2. Ознакомьтесь с графическим интерфейсом VirtualBox, посмотрите как выглядит виртуальная машина, которую создал для вас Vagrant, какие аппаратные ресурсы ей выделены. Какие ресурсы выделены по-умолчанию?
-
+    ![](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term1/4.JPG?raw=true)
 3. Ознакомьтесь с возможностями конфигурации VirtualBox через Vagrantfile: [документация](https://www.vagrantup.com/docs/providers/virtualbox/configuration.html). Как добавить оперативной памяти или ресурсов процессора виртуальной машине?
     - для добавления памяти и ЦПУ необходимо добавить строки в Vagrantfile 
     >config.vm.provider "virtualbox" do |v|
@@ -28,14 +26,14 @@
     end
 
 4. Команда `vagrant ssh` из директории, в которой содержится Vagrantfile, позволит вам оказаться внутри виртуальной машины без каких-либо дополнительных настроек. Попрактикуйтесь в выполнении обсуждаемых команд в терминале Ubuntu.
-
+    ![](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term1/5.JPG?raw=true)
 5. Ознакомьтесь с разделами `man bash`, почитайте о настройках самого bash:
     * какой переменной можно задать длину журнала `history`, и на какой строчке manual это описывается?
    >history-size 1710 строка
     * что делает директива `ignoreboth` в bash?
    >игнорирует в запись истории команд, команды которые начинаются с пробела и повторяющуюся с последней командой
 6. В каких сценариях использования применимы скобки `{}` и на какой строчке `man bash` это описано?
-   >`{}` применимы для перечисления нескольких переменных для выполнения команды
+   >`{}` применимы для перечисления нескольких переменных
    
    >746 строка
    > 
