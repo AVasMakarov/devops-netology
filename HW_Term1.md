@@ -11,7 +11,9 @@
 			config.vm.box = "bento/ubuntu-20.04"
 		end
 		```
+
     ![Создал ВМ] (https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term1/1.JPG?raw=true)
+
 	* Выполнение в этой директории `vagrant up` установит провайдер VirtualBox для Vagrant, скачает необходимый образ и запустит виртуальную машину.
 
 	* `vagrant suspend` выключит виртуальную машину с сохранением ее состояния (т.е., при следующем `vagrant up` будут запущены все процессы внутри, которые работали на момент вызова suspend), `vagrant halt` выключит виртуальную машину штатным образом.
