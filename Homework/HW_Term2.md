@@ -39,9 +39,9 @@
 Это можно сделать, поменяв стандартные потоки местами через промежуточный новый дескриптор, который вы научились создавать в предыдущем вопросе.
 9. Что выведет команда `cat /proc/$$/environ`? Как еще можно получить аналогичный по содержанию вывод?
 
-   > vagrant@vagrant:~$ cat /proc/$$/environ  
+   > vagrant@vagrant:$ cat /proc/$$/environ  
    > USER=vagrant LOGNAME=vagrant HOME=/home/vagrant PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin SHELL=/bin/bash TERM=xterm-256color XDG_SESSION_ID=6 XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus XDG_SESSION_TYPE=tty XDG_SESSION_CLASS=user MOTD_SHOWN=pam LANG=en_US.UTF-8 SSH_CLIENT=10.0.2.2 50763 22 SSH_CONNECTION=10.0.2.2 50763 10.0.2.15 22 SSH_TTY=/dev/pts/1  
-     vagrant@vagrant:~$ env  
+     vagrant@vagrant:$ env  
      SHELL=/bin/bash  
      PWD=/home/vagrant  
      LOGNAME=vagrant  
