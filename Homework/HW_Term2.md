@@ -40,7 +40,7 @@
 9. Что выведет команда `cat /proc/$$/environ`? Как еще можно получить аналогичный по содержанию вывод?
 
    > vagrant@vagrant:~$ cat /proc/$$/environ  
-     USER=vagrant LOGNAME=vagrant HOME=/home/vagrant PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin SHELL=/bin/bash TERM=xterm-256color XDG_SESSION_ID=6 XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus XDG_SESSION_TYPE=tty XDG_SESSION_CLASS=user MOTD_SHOWN=pam LANG=en_US.UTF-8 SSH_CLIENT=10.0.2.2 50763 22 SSH_CONNECTION=10.0.2.2 50763 10.0.2.15 22 SSH_TTY=/dev/pts/1 vagrant@vagrant:~$   
+   > USER=vagrant LOGNAME=vagrant HOME=/home/vagrant PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin SHELL=/bin/bash TERM=xterm-256color XDG_SESSION_ID=6 XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus XDG_SESSION_TYPE=tty XDG_SESSION_CLASS=user MOTD_SHOWN=pam LANG=en_US.UTF-8 SSH_CLIENT=10.0.2.2 50763 22 SSH_CONNECTION=10.0.2.2 50763 10.0.2.15 22 SSH_TTY=/dev/pts/1 vagrant@vagrant:~$   
      vagrant@vagrant:~$ env  
      SHELL=/bin/bash  
      PWD=/home/vagrant  
@@ -111,7 +111,7 @@
 
 	Почитайте, почему так происходит, и как изменить поведение.
 
-    > TTY не подходит для удаленного подключения. В команду добавляем -t и тогда будет работать.  
+    > TTY не подходит для удаленного подключения. В команду добавляем `-t` и тогда будет работать.  
       PS C:\VM\Vagrant> ssh -p 2222 -i C:\VM\Vagrant\.vagrant\machines\default\virtualbox\private_key vagrant@localhost 'tty'  
       not a tty  
       PS C:\VM\Vagrant> ssh -t -p 2222 -i C:\VM\Vagrant\.vagrant\machines\default\virtualbox\private_key vagrant@localhost 'tty'  
@@ -119,7 +119,7 @@
 
 13. Бывает, что есть необходимость переместить запущенный процесс из одной сессии в другую. Попробуйте сделать это, воспользовавшись `reptyr`. Например, так можно перенести в `screen` процесс, который вы запустили по ошибке в обычной SSH-сессии.
 
-    > Открыл файл в vi в одном терминале, остановил процесс (Ctrl+Z), посмотрел PID и открыл его в другом терминале с помощью `reptyr`
+    > Открыл файл в `vi` в одном терминале, остановил процесс (Ctrl+Z), посмотрел PID и открыл его в другом терминале с помощью `reptyr`
 
     ![](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/1.JPG?raw=true)
 
