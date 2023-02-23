@@ -60,22 +60,22 @@
 
 	(прочие строки могут отличаться содержимым и порядком)
     В качестве ответа приведите команды, которые позволили вам добиться указанного вывода или соответствующие скриншоты.
-   > 38 type -a bash
-     39  cd /usr/bin/
-     40  ls
-     41  cd bash
-     42  nano bash
-     43  cp bash /tmp/new_path_directory/
-     44  cd /tmp/new_path_directory/
-     45  ls
-     46  type -a bash
-     47  echo $PATH
-     48  export PATH=/tmp/new_path_directory:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-     root@vagrant:/tmp/new_path_directory# type -a bash
-     bash is /tmp/new_path_directory/bash
-     bash is /usr/bin/bash
-     bash is /bin/bash
-     root@vagrant:/tmp/new_path_directory#
+   > 38 type -a bash  
+     39  cd /usr/bin/  
+     40  ls  
+     41  cd bash  
+     42  nano bash  
+     43  cp bash /tmp/new_path_directory/  
+     44  cd /tmp/new_path_directory/  
+     45  ls  
+     46  type -a bash  
+     47  echo $PATH  
+     48  export PATH=/tmp/new_path_directory:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin  
+     root@vagrant:/tmp/new_path_directory# type -a bash  
+     bash is /tmp/new_path_directory/bash  
+     bash is /usr/bin/bash  
+     bash is /bin/bash  
+     root@vagrant:/tmp/new_path_directory#  
 10. Чем отличается планирование команд с помощью `batch` и `at`?
    > batch планирует выполнение задачи исходя из ресурсов ПК, at планирует выполнение команды по времени
 
