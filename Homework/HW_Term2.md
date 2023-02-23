@@ -36,19 +36,19 @@
       -bash: syntax error near unexpected token `2'  
       При таком варианте команды, как на лекции, выдает ошибку
 
-    ![2]()
+    ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/2.JPG?raw=true)
 
 5. Получится ли одновременно передать команде файл на stdin и вывести ее stdout в другой файл? Приведите работающий пример.
 
     >root@vagrant:/var/log# ls < /etc > /dev/pts/1
 
-    ![3]()
+    ![3](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/3.JPG?raw=true)
 
 6. Получится ли, находясь в графическом режиме, вывести данные из PTY в какой-либо из эмуляторов TTY? Сможете ли вы наблюдать выводимые данные?
 
     > Да, все будет работать при перенаправлении `/dev/tty1`
  
-    ![4]()
+    ![4](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/4.JPG?raw=true)
 
 7. Выполните команду `bash 5>&1`. К чему она приведет? Что будет, если вы выполните `echo netology > /proc/$$/fd/5`? Почему так происходит?
 
