@@ -32,11 +32,12 @@
     > root@vagrant:/var/log# ls /etc > /dev/pts/1 2>&1  
       При выполнении данной команды проходит вывод в другой терминал
 
+    ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/2.JPG?raw=true)
+
     > root@vagrant:/var/log# ls /etc > /dev/pts/1 > 2>&1  
       -bash: syntax error near unexpected token `2'  
       При таком варианте команды, как на лекции, выдает ошибку
 
-    ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/2.JPG?raw=true)
 
 5. Получится ли одновременно передать команде файл на stdin и вывести ее stdout в другой файл? Приведите работающий пример.
 
