@@ -29,19 +29,44 @@
 
 4. Как будет выглядеть команда, которая перенаправит вывод stderr `ls` на другую сессию терминала?
 
-    > 
+    > root@vagrant:/var/log# ls /etc > /dev/pts/1 2>&1  
+      При выполнении данной команды проходит вывод в другой терминал
+
+    > root@vagrant:/var/log# ls /etc > /dev/pts/1 > 2>&1  
+      -bash: syntax error near unexpected token `2'  
+      При таком варианте команды, как на лекции, выдает ошибку
+
+    ![2]()
 
 5. Получится ли одновременно передать команде файл на stdin и вывести ее stdout в другой файл? Приведите работающий пример.
+
+    >root@vagrant:/var/log# ls < /etc > /dev/pts/1
+
+    ![3]()
+
 6. Получится ли, находясь в графическом режиме, вывести данные из PTY в какой-либо из эмуляторов TTY? Сможете ли вы наблюдать выводимые данные?
+
+    > Да, все будет работать при перенаправлении `/dev/tty1`
+ 
+    ![4]()
+
 7. Выполните команду `bash 5>&1`. К чему она приведет? Что будет, если вы выполните `echo netology > /proc/$$/fd/5`? Почему так происходит?
+
+    > `bash 5>&1` перенаправит вывод 5го файлового дескриптора в 1й файловый дескриптор. При выполнении `echo netology > /proc/$$/fd/5` результатом будет `netology` в shell.  
+      Так происходит, потому что мы сначала перенаправили 5й в 1й, а затем перенаправили выполнение `echo` в 5й, соответственно из 5го он попал в 1й (Stdout)
+
 8. Получится ли в качестве входного потока для pipe использовать только stderr команды, не потеряв при этом отображение stdout на pty?  
 	Напоминаем: по умолчанию через pipe передается только stdout команды слева от `|` на stdin команды справа.
 Это можно сделать, поменяв стандартные потоки местами через промежуточный новый дескриптор, который вы научились создавать в предыдущем вопросе.
+
+    > При выполнении команды с перенаправлением `2>/dev/pts/1`, поток stderr уходит в другой терминал, а stdout остается в текущем.
+
 9. Что выведет команда `cat /proc/$$/environ`? Как еще можно получить аналогичный по содержанию вывод?
 
    > vagrant@vagrant:$ cat /proc/$$/environ  
    > USER=vagrant LOGNAME=vagrant HOME=/home/vagrant PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin SHELL=/bin/bash TERM=xterm-256color XDG_SESSION_ID=6 XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus XDG_SESSION_TYPE=tty XDG_SESSION_CLASS=user MOTD_SHOWN=pam LANG=en_US.UTF-8 SSH_CLIENT=10.0.2.2 50763 22 SSH_CONNECTION=10.0.2.2 50763 10.0.2.15 22 SSH_TTY=/dev/pts/1  
-     vagrant@vagrant:$ env  
+     
+    >vagrant@vagrant:$ env  
      SHELL=/bin/bash  
      PWD=/home/vagrant  
      LOGNAME=vagrant  
@@ -68,7 +93,20 @@
 
 10. Используя `man`, опишите что доступно по адресам `/proc/<PID>/cmdline`, `/proc/<PID>/exe`.
 
-    >
+    > /proc/[pid]/cmdline  
+              This read-only file holds the complete command line for the process, unless the process  is  a  zombie.
+              In  the  latter case, there is nothing in this file: that is, a read on this file will return 0 characters. 
+              The command-line arguments appear in this file as a set  of  strings  separated  by  null  bytes
+              ('\0'), with a further null byte after the last string.
+    > 
+    >/proc/[pid]/exe  
+              Under  Linux 2.2 and later, this file is a symbolic link containing the actual pathname of the executed
+              command.  This symbolic link can be dereferenced normally; attempting to open it  will  open  the  exe‐
+              cutable.   You  can  even type /proc/[pid]/exe to run another copy of the same executable that is being
+              run by process [pid].  If the pathname has been unlinked, the symbolic link  will  contain  the  string
+              '(deleted)'  appended  to the original pathname.  In a multithreaded process, the contents of this sym‐
+              bolic link are not  available  if  the  main  thread  has  already  terminated  (typically  by  calling
+              pthread_exit(3)). 
 
 11. Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью `/proc/cpuinfo`.
 
@@ -121,6 +159,8 @@
 
     > Открыл файл в `vi` в одном терминале, остановил процесс (Ctrl+Z), посмотрел PID и открыл его в другом терминале с помощью `reptyr`
 
-    ![](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/1.JPG?raw=true)
+    ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/1.JPG?raw=true)
 
-14. `sudo echo string > /root/new_file` не даст выполнить перенаправление под обычным пользователем, так как перенаправлением занимается процесс shell'а, который запущен без `sudo` под вашим пользователем. Для решения данной проблемы можно использовать конструкцию `echo string | sudo tee /root/new_file`. Узнайте? что делает команда `tee` и почему в отличие от `sudo echo` команда с `sudo tee` будет работать.
+14. `sudo echo string > /root/new_file` не даст выполнить перенаправление под обычным пользователем, так как перенаправлением занимается процесс shell'а, который запущен без `sudo` под вашим пользователем. Для решения данной проблемы можно использовать конструкцию `echo string | sudo tee /root/new_file`. Узнайте, что делает команда `tee` и почему в отличие от `sudo echo` команда с `sudo tee` будет работать.
+
+    > Вариант с `tee` сработает, потому что команда запускается с привелегиями и она будет перезаписывать файл, а в первом случае это выполняет `shell` без привилегий
