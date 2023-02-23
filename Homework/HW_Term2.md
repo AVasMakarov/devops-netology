@@ -41,7 +41,7 @@
 
 5. Получится ли одновременно передать команде файл на stdin и вывести ее stdout в другой файл? Приведите работающий пример.
 
-    >root@vagrant:/var/log# ls < /etc > /dev/pts/1
+    >root@vagrant:/var/log# cat dpkg.log > faillog
 
     ![3](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW_Term2/3.JPG?raw=true)
 
