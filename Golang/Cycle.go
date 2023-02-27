@@ -28,11 +28,11 @@ func main() {
 	girls := []string{"Kate", "Liza", "Kira", "Emma", "Trisha"}
 	sort.Strings(boys)
 	sort.Strings(girls)
-	length_boys := len(boys)
-	length_girls := len(girls)
-	if length_boys == length_girls {
+	lengthBoys := len(boys)
+	lengthGirls := len(girls)
+	if lengthBoys == lengthGirls {
 		println("Идеальные пары:")
-		for count := 0; count <= length_boys; count++ {
+		for count := 0; count <= lengthBoys-1; count++ {
 			println(boys[count] + " и " + girls[count])
 		}
 	} else {
