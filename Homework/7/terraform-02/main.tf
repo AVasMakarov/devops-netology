@@ -16,9 +16,9 @@ resource "yandex_compute_instance" "terraform1" {
   name        = local.name_web
   platform_id = var.vm_web_platform
   resources {
-    cores         = 2
-    memory        = 1
-    core_fraction = 5
+    cores         = local.vm_resources.vm_web_resources.cores
+    memory        = local.vm_resources.vm_web_resources.memory
+    core_fraction = local.vm_resources.vm_web_resources.core_fraction
   }
   boot_disk {
     initialize_params {
@@ -33,10 +33,7 @@ resource "yandex_compute_instance" "terraform1" {
     nat       = true
   }
 
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
-  }
+  metadata = local.credential
 
 }
 
@@ -47,9 +44,9 @@ resource "yandex_compute_instance" "terraform2" {
   name        = local.name_db
   platform_id = var.vm_db_platform
   resources {
-    cores         = 2
-    memory        = 2
-    core_fraction = 20
+    cores         = local.vm_resources.vm_db_resources.cores
+    memory        = local.vm_resources.vm_db_resources.memory
+    core_fraction = local.vm_resources.vm_db_resources.core_fraction
   }
   boot_disk {
     initialize_params {
@@ -64,9 +61,6 @@ resource "yandex_compute_instance" "terraform2" {
     nat       = true
   }
 
-  metadata = {
-    serial-port-enable = 1
-    ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
-  }
+  metadata = local.credential
 
 }

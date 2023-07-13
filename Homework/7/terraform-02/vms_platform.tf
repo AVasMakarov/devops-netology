@@ -53,11 +53,11 @@ variable "vm_web_platform" {
 
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJUzAgWxwtumjjkoUj+aK7tAXZ/1fvnqmACzpD/+Qehc mav@mav-pc"
-  description = "ssh-keygen -t ed25519"
-}
+#variable "vms_ssh_root_key" {
+#  type        = string
+#  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJUzAgWxwtumjjkoUj+aK7tAXZ/1fvnqmACzpD/+Qehc mav@mav-pc"
+#  description = "ssh-keygen -t ed25519"
+#}
 
 ###VM_db vars
 
