@@ -43,6 +43,12 @@ variable "vm_platform" {
   description = "VM platform"
 }
 
+variable "disk_type" {
+  type        = string
+  default     = "network-hdd"
+  description = "VM image"
+}
+
 variable "each" {
   type = list(object({
     vm_name = string,

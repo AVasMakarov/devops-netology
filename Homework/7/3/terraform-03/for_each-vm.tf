@@ -1,10 +1,10 @@
 resource "yandex_compute_instance" "vm_4_each" {
   depends_on = [yandex_compute_instance.count]
 
-  for_each =   {
-    "main" = var.each[0]
-    "replica" = var.each[1]
-  }
+  for_each = {
+  "main" = var.each[0],
+  "replica" = var.each[1]
+    }
   name        = each.value.vm_name
   platform_id = var.vm_platform
   resources {
@@ -20,6 +20,7 @@ resource "yandex_compute_instance" "vm_4_each" {
   scheduling_policy {
     preemptible = true
   }
+
   network_interface {
     subnet_id = yandex_vpc_subnet.develop.id
     security_group_ids = [yandex_vpc_security_group.example.id]

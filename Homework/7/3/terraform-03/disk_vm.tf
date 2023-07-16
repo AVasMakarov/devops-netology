@@ -1,8 +1,14 @@
+resource "yandex_compute_disk" "vm_disk" {
+  count      = 3
+  name       = "${local.disk-name}-${count.index}"
+  type       = var.disk_type
+  zone       = var.default_zone
+  size       = 1
+}
 
-
-resource "yandex_compute_instance" "count" {
-  count = 2
-  name        = "${local.vm_name}-${count.index+1}"
+resource "yandex_compute_instance" "storage" {
+  depends_on = [yandex_compute_disk.vm_disk]
+  name        = "${local.vm_name}-storage"
   platform_id = var.vm_platform
   resources {
     cores         = local.vm_resources.cores
@@ -14,6 +20,14 @@ resource "yandex_compute_instance" "count" {
       image_id = data.yandex_compute_image.ubuntu.image_id
     }
   }
+
+  dynamic secondary_disk {
+      for_each = yandex_compute_disk.vm_disk[*].id
+      content {
+      disk_id = secondary_disk.value
+      }
+  }
+
   scheduling_policy {
     preemptible = true
   }
