@@ -1,7 +1,7 @@
 ###Name for VM
 locals {
   vm_name = "web"
-  disk-name = "vm-disk"
+  disk-name = "storage"
   ###Resources
   vm_resources = {
     cores         = 2

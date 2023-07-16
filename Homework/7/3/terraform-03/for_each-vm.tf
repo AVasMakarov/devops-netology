@@ -1,9 +1,9 @@
 resource "yandex_compute_instance" "vm_4_each" {
   depends_on = [yandex_compute_instance.count]
 
-  for_each = {
-  "main" = var.each[0],
-  "replica" = var.each[1]
+  for_each =   {
+  "main" = var.vm_data[0],
+  "replica" = var.vm_data[1]
     }
   name        = each.value.vm_name
   platform_id = var.vm_platform

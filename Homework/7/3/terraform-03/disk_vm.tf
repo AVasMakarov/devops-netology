@@ -8,7 +8,7 @@ resource "yandex_compute_disk" "vm_disk" {
 
 resource "yandex_compute_instance" "storage" {
   depends_on = [yandex_compute_disk.vm_disk]
-  name        = "${local.vm_name}-storage"
+  name        = "${local.vm_name}-${local.disk-name}"
   platform_id = var.vm_platform
   resources {
     cores         = local.vm_resources.cores

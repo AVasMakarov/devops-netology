@@ -49,7 +49,7 @@ variable "disk_type" {
   description = "VM image"
 }
 
-variable "each" {
+variable "vm_data" {
   type = list(object({
     vm_name = string,
     cpu     = number,
