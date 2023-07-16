@@ -1,14 +1,17 @@
+resource "yandex_compute_instance" "vm_4_each" {
+  depends_on = [yandex_compute_instance.count]
 
-
-resource "yandex_compute_instance" "count" {
-  count = 2
-  name        = "${local.name}-${count.index+1}"
+  for_each =   {
+    "main" = var.each[0]
+    "replica" = var.each[1]
+  }
+  name        = each.value.vm_name
   platform_id = var.vm_platform
   resources {
-    cores         = local.vm_resources.cores
-    memory        = local.vm_resources.memory
-    core_fraction = local.vm_resources.core_fraction
-  }
+    cores         = each.value.cpu
+    memory        = each.value.ram
+    core_fraction = each.value.core_fraction
+   }
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu.image_id
