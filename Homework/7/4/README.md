@@ -35,15 +35,15 @@ module "vpc_dev" {
 
 ### Задание 3
 1. Выведите список ресурсов в стейте.
-> ![2]()
+> ![2](https://github.com/AVasMakarov/devops-netology/blob/terraform-04/Screenshots/HW7_4/2.png?raw=true)
 2. Полностью удалите из стейта модуль vpc.
-> ![3]()
+> ![3](https://github.com/AVasMakarov/devops-netology/blob/terraform-04/Screenshots/HW7_4/3.png?raw=true)
 3. Полностью удалите из стейта модуль vm.
-> ![4]()
+> ![4](https://github.com/AVasMakarov/devops-netology/blob/terraform-04/Screenshots/HW7_4/4.png?raw=true)
 4. Импортируйте все обратно. Проверьте terraform plan - изменений быть не должно.
    Приложите список выполненных команд и скриншоты процессы.
 > После импорта vpc и vm `terraform plan` выдал, что обновит данные. Как импортировать без этих изменений не нашёл. Можете подсказать как решить или где взять информацию? 
-> ![5]()
+> ![5](https://github.com/AVasMakarov/devops-netology/blob/terraform-04/Screenshots/HW7_4/5.png?raw=true)
 ## Дополнительные задания (со звездочкой*)
 
 **Настоятельно рекомендуем выполнять все задания под звёздочкой.**   Их выполнение поможет глубже разобраться в материале.   
