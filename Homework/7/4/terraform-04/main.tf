@@ -17,10 +17,10 @@ data "template_file" "cloudinit" {
   }
 }
 module "vm_netwok" {
-  source       = "./.terraform/modules/vpc"
+  source       = "./vpc"
   env_name     = "develop"
-  vm_zone         = "ru-central1-a"
-  vm_cidr         = ["10.0.1.0/24"]
+  vm_zone      = "ru-central1-a"
+  vm_cidr      = ["10.0.1.0/24"]
 }
 
 module "test-vm" {

@@ -21,7 +21,7 @@
 3. Замените ресурсы yandex_vpc_network и yandex_vpc_subnet, созданным модулем.
 4. Сгенерируйте документацию к модулю с помощью terraform-docs.
 
-> [Ссылка]() на коммит
+> [Ссылка](https://github.com/AVasMakarov/devops-netology/commit/fadd51d068cf9d10d15667e2a0861cd8fa6fd57a) на коммит
 
 Пример вызова:
 ```
