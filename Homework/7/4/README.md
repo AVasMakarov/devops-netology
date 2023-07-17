@@ -8,9 +8,9 @@
 3. Добавьте в файл cloud-init.yml установку nginx.
 4. Предоставьте скриншот подключения к консоли и вывод команды ```sudo nginx -t```.
 
-> [Ссылка]() на коммит  
+> [Ссылка](https://github.com/AVasMakarov/devops-netology/commit/d689b89c1b6e2935c543ed79b5373d5e74c6ea47) на коммит  
 
-   ![1]()
+   ![1](https://github.com/AVasMakarov/devops-netology/blob/terraform-04/Screenshots/HW7_4/1.png?raw=true)
 
 ------
 
@@ -20,6 +20,8 @@
 2. Модуль должен возвращать значения vpc.id и subnet.id
 3. Замените ресурсы yandex_vpc_network и yandex_vpc_subnet, созданным модулем.
 4. Сгенерируйте документацию к модулю с помощью terraform-docs.
+
+> [Ссылка]() на коммит
 
 Пример вызова:
 ```
