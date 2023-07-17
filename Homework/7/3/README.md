@@ -30,7 +30,7 @@
 4. Используйте функцию file в local переменной для считывания ключа ~/.ssh/id_rsa.pub и его последующего использования в блоке metadata, взятому из ДЗ №2.
 5. Инициализируйте проект, выполните код.
 
-> [Ссылка](https://github.com/AVasMakarov/devops-netology/commit/b9a72ac37c1bea78ae2b146341b60a46554d14d7) на коммит
+> [Ссылка](https://github.com/AVasMakarov/devops-netology/commit/b9a72ac37c1bea78ae2b146341b60a46554d14d7) на коммит  
 > IDE ругается на переменные, но при этом ресурсы создает корректно
 > ![2](https://github.com/AVasMakarov/devops-netology/blob/terraform-03/Screenshots/HW7_3/2.png?raw=true)
 ------
