@@ -3,9 +3,9 @@ output "network_id" {
 }
 
 output "subnet_id" {
-  value = yandex_vpc_subnet.develop.id
+  value = yandex_vpc_subnet.develop[*].id
 }
 
 output "ya_zone" {
-  value = yandex_vpc_subnet.develop.zone
+  value = yandex_vpc_subnet.develop[*].zone
 }

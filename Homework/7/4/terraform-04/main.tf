@@ -18,17 +18,29 @@ data "template_file" "cloudinit" {
 }
 module "vm_netwok" {
   source       = "./vpc"
-  env_name     = "develop"
-  vm_zone      = "ru-central1-a"
-  vm_cidr      = ["10.0.1.0/24"]
+  env_name     = "prod"
+  vm_zone      = [
+    { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
+    { zone = "ru-central1-b", cidr = "10.0.2.0/24" },
+    { zone = "ru-central1-c", cidr = "10.0.3.0/24" }
+    ]
+#  vm_cidr      = ["10.0.1.0/24"]
 }
+
+#module "vpc_dev" {
+#  source       = "./vpc"
+#  env_name     = "dev"
+#  vm_zone = [
+#    { zone = "ru-central1-a", cidr = "10.0.1.0/24" },
+#  ]
+#}
 
 module "test-vm" {
   source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name        = "develop"
   network_id      = module.vm_netwok.network_id
-  subnet_zones    = [ module.vm_netwok.ya_zone ]
-  subnet_ids      = [ module.vm_netwok.subnet_id ]
+  subnet_zones    = [ module.vm_netwok.ya_zone[0] ]
+  subnet_ids      = [ module.vm_netwok.subnet_id[0] ]
   instance_name   = "web"
   instance_count  = 2
   image_family    = "ubuntu-2004-lts"

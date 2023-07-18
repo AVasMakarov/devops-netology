@@ -77,12 +77,71 @@ module "vpc_dev" {
 
 Предоставьте код, план выполнения, результат из консоли YC.
 
+`vpc/variables.tf`
+```hcl
+`...`
+variable "vm_zone" {
+  type        = list(object({
+    zone = string,
+    cidr = string
+  })
+  )
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+}
+`...`
+```
+
+`vpc/main.tf`
+```hcl
+`...`
+resource "yandex_vpc_subnet" "develop" {
+  name           = "${var.env_name}-${count.index}"
+  network_id     = yandex_vpc_network.develop.id
+  count = length(var.vm_zone)
+  zone = var.vm_zone[count.index].zone
+  v4_cidr_blocks = [var.vm_zone[count.index].cidr]
+}
+`...`
+```
+
+`main.tf`
+```hcl
+module "test-vm" {
+  source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  env_name        = "develop"
+  network_id      = module.vm_netwok.network_id
+  subnet_zones    = [ module.vm_netwok.ya_zone[0] ]
+  subnet_ids      = [ module.vm_netwok.subnet_id[0] ]
+  instance_name   = "web"
+  instance_count  = 2
+  image_family    = "ubuntu-2004-lts"
+  public_ip       = true
+```
+
+`Результат выполнения`
+```bash
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+sub_id = [
+  "e9bmlunvg7fnhkj0stsk",
+  "e2lkla2f1tmade8jhrt5",
+  "b0ctav968fbucksf1285",
+]
+vm_ip = [
+  "51.250.2.138",
+  "158.160.63.8",
+]
+vpc_id = "enphd7iod7vuhehg2tq4"
+
+```
 ### Задание 5***
 
 1. Напишите модуль для создания кластера managed БД Mysql в Yandex Cloud с 1 или 3 хостами в зависимости от переменной HA=true или HA=false. Используйте ресурс yandex_mdb_mysql_cluster (передайте имя кластера и id сети).
 2. Напишите модуль для создания базы данных и пользователя в уже существующем кластере managed БД Mysql. Используйте ресурсы yandex_mdb_mysql_database и yandex_mdb_mysql_user (передайте имя базы данных, имя пользователя и id кластера при вызове модуля).
 3. Используя оба модуля, создайте кластер example из одного хоста, а затем добавьте в него БД test и пользователя app. Затем измените переменную и превратите сингл хост в кластер из 2х серверов.
-4.
+
 Предоставьте план выполнения и по-возможности результат. Сразу же удаляйте созданные ресурсы, так как кластер может стоить очень дорого! Используйте минимальную конфигурацию.
 
 ### Задание 6*
