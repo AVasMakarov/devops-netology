@@ -79,8 +79,8 @@ Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
 1. Возьмите ваш GitHub репозиторий с **выполненным ДЗ №4** в ветке 'terraform-04' и сделайте из него ветку 'terraform-05'
 2. Повторите демонстрацию лекции: настройте YDB, S3 bucket, yandex service account, права доступа и мигрируйте State проекта в S3 с блокировками. Предоставьте скриншоты процесса в качестве ответа.
 
-    ![1]()
-    ![2]()
+    ![1](https://github.com/AVasMakarov/devops-netology/blob/terraform-05/Screenshots/HW7_5/1.png?raw=true)
+    ![2](https://github.com/AVasMakarov/devops-netology/blob/terraform-05/Screenshots/HW7_5/2.png?raw=true)
 
 3. Закомитьте в ветку 'terraform-05' все изменения.
 

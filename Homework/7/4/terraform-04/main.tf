@@ -17,7 +17,7 @@ module "vm_netwok" {
 
 
 module "test-vm" {
-  source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=b266a31489d2681541ea41c5bca6dcfb92ab886a"
   env_name        = "develop"
   network_id      = module.vm_netwok.network_id
   subnet_zones    = [ module.vm_netwok.ya_zone[0] ]
