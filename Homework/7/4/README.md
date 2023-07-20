@@ -79,7 +79,7 @@ module "vpc_dev" {
 
 `vpc/variables.tf`
 ```hcl
-`...`
+...
 variable "vm_zone" {
   type        = list(object({
     zone = string,
@@ -88,12 +88,12 @@ variable "vm_zone" {
   )
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
 }
-`...`
+...
 ```
 
 `vpc/main.tf`
 ```hcl
-`...`
+...
 resource "yandex_vpc_subnet" "develop" {
   name           = "${var.env_name}-${count.index}"
   network_id     = yandex_vpc_network.develop.id
@@ -101,11 +101,12 @@ resource "yandex_vpc_subnet" "develop" {
   zone = var.vm_zone[count.index].zone
   v4_cidr_blocks = [var.vm_zone[count.index].cidr]
 }
-`...`
+...
 ```
 
 `main.tf`
 ```hcl
+...
 module "test-vm" {
   source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name        = "develop"
@@ -116,6 +117,7 @@ module "test-vm" {
   instance_count  = 2
   image_family    = "ubuntu-2004-lts"
   public_ip       = true
+...
 ```
 
 `Результат выполнения`
