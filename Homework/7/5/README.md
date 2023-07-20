@@ -80,22 +80,59 @@ Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
 2. Повторите демонстрацию лекции: настройте YDB, S3 bucket, yandex service account, права доступа и мигрируйте State проекта в S3 с блокировками. Предоставьте скриншоты процесса в качестве ответа.
 
     ![1]()
+    ![2]()
 
 3. Закомитьте в ветку 'terraform-05' все изменения.
 
 ```bash
 mav@mav-pc:~/work/devops-netology/Homework/7/4/terraform-04$ git commit -am 'HW7_5 2 do'
-[terraform-05 dbaf922] HW7_5 2 do
- 5 files changed, 165 insertions(+), 23 deletions(-)
- create mode 100644 Homework/7/5/README.md
- create mode 100644 Screenshots/HW7_5/1.png
-
+[terraform-05 8f6060b] HW7_5 2 do
+ 3 files changed, 15 insertions(+), 1 deletion(-)
 ```
 
 4. Откройте в проекте terraform console, а в другом окне из этой же директории попробуйте запустить terraform apply.
 5. Пришлите ответ об ошибке доступа к State.
+```hcl
+mav@mav-pc:~/work/devops-netology/Homework/7/4/terraform-04$ terraform apply
+Acquiring state lock. This may take a few moments...
+╷
+│ Error: Error acquiring the state lock
+│
+│ Error message: ConditionalCheckFailedException: Condition not satisfied
+│ Lock Info:
+│   ID:        e631b3cc-d501-848f-4d07-a75750ac8f0e
+│   Path:      tfstate-devopsnetology/terraform.tfstate
+│   Operation: OperationTypeInvalid
+│   Who:       mav@mav-pc
+│   Version:   1.5.3
+│   Created:   2023-07-20 07:36:58.910107607 +0000 UTC
+│   Info:
+│
+│
+│ Terraform acquires a state lock to protect the state from being written
+│ by multiple users at the same time. Please resolve the issue above and try
+│ again. For most commands, you can disable locking with the "-lock=false"
+│ flag, but this is not recommended.
+
+```
 6. Принудительно разблокируйте State. Пришлите команду и вывод.
 
+```hcl
+mav@mav-pc:~/work/devops-netology/Homework/7/4/terraform-04$ terraform apply -lock=false
+data.template_file.cloudinit: Reading...
+data.template_file.cloudinit: Read complete after 0s [id=5dc6a7189057f1fd930d66883978e02bfce7b33a7b97642153cb9b99f95a97d4]
+module.test-vm.data.yandex_compute_image.my_image: Reading...
+module.vm_netwok.yandex_vpc_network.develop: Refreshing state... [id=enpr9q6cv73a769g2831]
+module.test-vm.data.yandex_compute_image.my_image: Read complete after 2s [id=fd85f37uh98ldl1omk30]
+module.vm_netwok.yandex_vpc_subnet.develop[1]: Refreshing state... [id=e2l384bj19m72jad8r2g]
+module.vm_netwok.yandex_vpc_subnet.develop[2]: Refreshing state... [id=b0ca1ib74rojdqlbf6te]
+module.vm_netwok.yandex_vpc_subnet.develop[0]: Refreshing state... [id=e9bbeg3uadfa36a2o8mp]
+module.test-vm.yandex_compute_instance.vm[0]: Refreshing state... [id=fhme8roso635v542idi3]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+...
+```
 
 ------
 ### Задание 3
