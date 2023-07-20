@@ -9,3 +9,4 @@ output "subnet_id" {
 output "ya_zone" {
   value = yandex_vpc_subnet.develop[*].zone
 }
+

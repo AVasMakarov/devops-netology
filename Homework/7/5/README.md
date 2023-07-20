@@ -82,6 +82,16 @@ Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
     ![1]()
 
 3. Закомитьте в ветку 'terraform-05' все изменения.
+
+```bash
+mav@mav-pc:~/work/devops-netology/Homework/7/4/terraform-04$ git commit -am 'HW7_5 2 do'
+[terraform-05 dbaf922] HW7_5 2 do
+ 5 files changed, 165 insertions(+), 23 deletions(-)
+ create mode 100644 Homework/7/5/README.md
+ create mode 100644 Screenshots/HW7_5/1.png
+
+```
+
 4. Откройте в проекте terraform console, а в другом окне из этой же директории попробуйте запустить terraform apply.
 5. Пришлите ответ об ошибке доступа к State.
 6. Принудительно разблокируйте State. Пришлите команду и вывод.
