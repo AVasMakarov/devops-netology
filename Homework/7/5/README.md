@@ -79,8 +79,8 @@ Check: CKV_TF_1: "Ensure Terraform module sources use a commit hash"
 1. Возьмите ваш GitHub репозиторий с **выполненным ДЗ №4** в ветке 'terraform-04' и сделайте из него ветку 'terraform-05'
 2. Повторите демонстрацию лекции: настройте YDB, S3 bucket, yandex service account, права доступа и мигрируйте State проекта в S3 с блокировками. Предоставьте скриншоты процесса в качестве ответа.
 
-    ![1]()
-    ![2]()
+    ![1](https://github.com/AVasMakarov/devops-netology/blob/terraform-05/Screenshots/HW7_5/1.png?raw=true)
+    ![2](https://github.com/AVasMakarov/devops-netology/blob/terraform-05/Screenshots/HW7_5/2.png?raw=true)
 
 3. Закомитьте в ветку 'terraform-05' все изменения.
 
@@ -143,13 +143,129 @@ Terraform used the selected providers to generate the following execution plan. 
 4. Вставьте в комментарий PR результат анализа tflint и checkov, план изменений инфраструктуры из вывода команды terraform plan.
 5. Пришлите ссылку на PR для ревью(вливать код в 'terraform-05' не нужно).
 
+>   [Ссылка](https://github.com/AVasMakarov/devops-netology/pull/1) на PR
+
 ------
 ### Задание 4
 
 1. Напишите переменные с валидацией и протестируйте их, заполнив default верными и неверными значениями. Предоставьте скриншоты проверок из terraform console.
 
 - type=string, description="ip-адрес", проверка что значение переменной содержит верный IP-адрес с помощью функций cidrhost() или regex(). Тесты:  "192.168.0.1" и "1920.1680.0.1"
+
+> если использовать  `cidrhost`, то к значениям приходится дописывать маску сети. Через `regex` проверяется корректно
+
+```hcl
+variable "ip1" {
+  type = string
+  description = "ip адрес"
+  default = "192.168.0.1/32"
+  validation {
+    condition = can(cidrhost (var.ip1, 0))
+    error_message = "Неверно указан ip адрес в переменной ip1"
+  }
+}
+
+variable "ip11" {
+  type = string
+  description = "ip адрес"
+  default = "192.168.0.1"
+  validation {
+    condition = can(regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",var.ip11))
+    error_message = "Неверно указан ip адрес в переменной ip11"
+  }
+}
+
+variable "ip2" {
+  type = string
+  description = "ip адрес"
+  default = "1920.1680.0.1/32"
+  validation {
+    condition = can(cidrhost (var.ip2, 0))
+    error_message = "Неверно указан ip адрес в переменной ip2"
+  }
+}
+
+variable "ip22" {
+  type = string
+  description = "ip адрес"
+  default = "1920.1680.0.1"
+  validation {
+    condition = can(regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",var.ip22))
+    error_message = "Неверно указан ip адрес в переменной ip22"
+  }
+}
+```
+
 - type=list(string), description="список ip-адресов", проверка что все адреса верны.  Тесты:  ["192.168.0.1", "1.1.1.1", "127.0.0.1"] и ["192.168.0.1", "1.1.1.1", "1270.0.0.1"]
+
+```hcl
+variable "list_ip1" {
+  type = list(string)
+  description = "список ip адрес"
+  default = ["192.168.0.1", "1.1.1.1", "127.0.0.1"]
+  validation {
+    condition = alltrue([
+    for a in var.list_ip1 : can(regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",a))
+    ])
+    error_message = "Неверно указан ip адрес в переменной list_ip1"
+  }
+}
+
+variable "list_ip2" {
+  type = list(string)
+  description = "список ip адрес"
+  default = ["192.168.0.1", "1.1.1.1", "1270.0.0.1"]
+  validation {
+    condition = alltrue([
+    for a in var.list_ip2 : can(regex("^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$",a))
+    ])
+    error_message = "Неверно указан ip адрес в переменной list_ip2"
+  }
+}
+```
+
+> Вывод ошибок после `terraform plan`
+
+```hcl
+...
+╷
+│ Error: Invalid value for variable
+│
+│   on variables.tf line 43:
+│   43: variable "ip2" {
+│     ├────────────────
+│     │ var.ip2 is "1920.1680.0.1/32"
+│
+│ Неверно указан ip адрес в переменной ip2
+│
+│ This was checked by the validation rule at variables.tf:47,3-13.
+╵
+╷
+│ Error: Invalid value for variable
+│
+│   on variables.tf line 53:
+│   53: variable "ip22" {
+│     ├────────────────
+│     │ var.ip22 is "1920.1680.0.1"
+│
+│ Неверно указан ip адрес в переменной ip22
+│
+│ This was checked by the validation rule at variables.tf:57,3-13.
+╵
+╷
+│ Error: Invalid value for variable
+│
+│   on variables.tf line 75:
+│   75: variable "list_ip2" {
+│     ├────────────────
+│     │ var.list_ip2 is list of string with 3 elements
+│
+│ Неверно указан ip адрес в переменной list_ip2
+│
+│ This was checked by the validation rule at variables.tf:79,3-13.
+╵
+
+```
 
 ## Дополнительные задания (со звездочкой*)
 
@@ -159,6 +275,19 @@ Terraform used the selected providers to generate the following execution plan. 
 ### Задание 5*
 1. Напишите переменные с валидацией:
 - type=string, description="любая строка", проверка что строка не содержит в себе символов верхнего регистра
+
+```hcl
+variable "example" {
+  type = string
+  description = "любая строка"
+  default = "asfA123"
+  validation {
+    condition = (length(regex("[a-z0-9]+", var.example)) == length(var.example))
+    error_message = "Есть заглавные буквы"
+  }
+}
+```
+
 - type=object, проверка что одно из значений равно true, а второе false, те не допускается false false и true true:
 ```
 variable "in_the_end_there_can_be_only_one" {
@@ -177,6 +306,26 @@ variable "in_the_end_there_can_be_only_one" {
         error_message = "There can be only one MacLeod"
         condition = <проверка>
     }
+}
+```
+
+```hcl
+variable "in_the_end_there_can_be_only_one" {
+  description="Who is better Connor or Duncan?"
+  type = object({
+    Dunkan = optional(bool)
+    Connor = optional(bool)
+  })
+
+  default = {
+    Dunkan = false
+    Connor = true
+  }
+
+  validation {
+    error_message = "There can be only one MacLeod"
+    condition = (var.in_the_end_there_can_be_only_one.Dunkan != var.in_the_end_there_can_be_only_one.Connor)
+  }
 }
 ```
 ------
