@@ -5,8 +5,8 @@ terraform {
       version = ">=0.13"
     }
     template = {
-      source  = "yandex-cloud/yandex"
-      version = ">=0.13"
+      source  = "hashicorp/template"
+      version = "2.2.0"
     }
   }
   required_version = ">=0.13"
