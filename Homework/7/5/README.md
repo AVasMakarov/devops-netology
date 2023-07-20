@@ -143,7 +143,7 @@ Terraform used the selected providers to generate the following execution plan. 
 4. Вставьте в комментарий PR результат анализа tflint и checkov, план изменений инфраструктуры из вывода команды terraform plan.
 5. Пришлите ссылку на PR для ревью(вливать код в 'terraform-05' не нужно).
 
-    ![Ссылка] (https://github.com/AVasMakarov/devops-netology/pull/1) на PR
+>   [Ссылка](https://github.com/AVasMakarov/devops-netology/pull/1) на PR
 
 ------
 ### Задание 4
