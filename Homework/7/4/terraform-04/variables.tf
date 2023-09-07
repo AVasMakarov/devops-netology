@@ -94,24 +94,31 @@ variable "default_zone" {
 #  }
 #}
 
+
+variable "num" {
+  type = number
+}
+
 variable "in_the_end_there_can_be_only_one" {
   description="Who is better Connor or Duncan?"
   type = object({
     Dunkan = optional(bool)
     Connor = optional(bool)
+    Clint  = optional(bool)
   })
 
   default = {
     Dunkan = false
-    Connor = true
+    Connor = false
+    Clint  = true
   }
 
   validation {
     error_message = "There can be only one MacLeod"
-    condition = (var.in_the_end_there_can_be_only_one.Dunkan != var.in_the_end_there_can_be_only_one.Connor)
+    condition = sum([for i in var.in_the_end_there_can_be_only_one : (i == true ? 1 : 0) ]) == 1
   }
 }
-
+#(i == true ? (k + 1) : (k + 0))
 #variable "default_cidr" {
 #  type        = list(string)
 #  default     = ["10.0.1.0/24"]
