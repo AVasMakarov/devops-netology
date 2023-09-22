@@ -210,7 +210,7 @@ mav@mav-pc:~/work/devops-netology/Homework/8/2/terraform-04$
 
   handlers: -- В этом разделе записываются задачи, выполнять которые требуется, если какая либо задача произвела изменение и сообщила об этом
     - name: Start clickhouse service -- Здесь выполняется перезагрузка установленного Clickhouse
-      tasks: -- В этом разделе записываются основные задачи для play "Install Clickhouse"<
+      tasks: -- В этом разделе записываются основные задачи для play "Install Clickhouse"
       tags: clickhouse -- тег, позволяющий ansible выполнять только помеченные тегом задачи 
     - block: -- Этот модуль объединяет две задачи, если первая завершится с ошибкой, запустится вторая - rescue
         - name: Get clickhouse distrib  -- Получение дистрибутива
@@ -245,5 +245,19 @@ ansible-playbook -i inventory/prod.yml site.yml
 ```
 если добавить к команде --tags clickhouse - будут выполнены все задачи, относящиеся к Clickhouse,
 если добавить к команде --tags vector - будут выполнены все задачи, относящиеся к Vector.
+
+#### Доработка ДЗ
+
+> Удалил из vars.yml `vector_packages: vector-server`, т.к. нигде не использовал, а добавил по аналогии с `clickhouse_packages`.  
+> Добавил описание `vars.yaml`
+
+clickhouse_version: "22.3.3.44" -- Версия Clickhouse для установки  
+clickhouse_packages: -- Список пакетов для скачивания и установки
+- clickhouse-client
+- clickhouse-server
+- clickhouse-common-static
+
+vector_version: "0.22.0" -- Версия Vector для установки  
+vector_dir: "/opt/vector" -- Директория установки Vector
 
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
