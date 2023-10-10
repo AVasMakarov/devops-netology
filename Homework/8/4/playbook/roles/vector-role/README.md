@@ -9,7 +9,7 @@ Role Variables
 |vars|description|
 |----|-----------|
 |vector_dir|Directory for installation|
-
+|vector_config|YAML config for Vector copying in vector.yaml|
 Example Playbook
 ----------------
 

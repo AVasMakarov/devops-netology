@@ -29,7 +29,7 @@
 
 - name: Copy server configuration file
   become: true
-  ansible.builtin.template:
-    src: vector.toml
-    dest: "{{ vector_dir }}/vector.toml"
+  ansible.builtin.copy:
+    content: "{{vector_config}}"
+    dest: "{{ vector_dir }}/vector.yaml"
     mode: "0644"
