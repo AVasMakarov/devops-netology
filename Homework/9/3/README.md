@@ -35,7 +35,7 @@ INFO: Linux 5.19.0-43-generic amd64
 8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
 9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
 
-    ![1]()
+    ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_3/1.png?raw=true)
 
 ## Знакомство с Nexus
 
