@@ -4,5 +4,6 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Homework/8/4/playbook/roles/lighthouse-role" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Homework/8/4/playbook/roles/vector-role" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Homework/8/5/playbook/roles/vector-role" vcs="Git" />
   </component>
 </project>

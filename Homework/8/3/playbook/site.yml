@@ -82,8 +82,8 @@
     - name: Copy server configuration file
       become: true
       ansible.builtin.template:
-        src: vector.toml
-        dest: "{{ vector_dir }}/vector.toml"
+        src: vector.toml.j2
+        dest: "{{ vector_dir }}/vector.toml.j2"
         mode: "0644"
   tags: vector
 
