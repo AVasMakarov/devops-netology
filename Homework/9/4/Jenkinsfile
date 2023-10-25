@@ -1,0 +1,28 @@
+pipeline {
+    agent {
+        label 'ansible'
+    }
+    stages{
+        stage('Git repo') {
+            steps {
+                git branch: 'main', url: 'https://github.com/AVasMakarov/devops-netology.git'
+            }
+        }
+        stage('test') {
+            steps {
+                dir('/opt/jenkins_agent/workspace/DeclarativePipelineJob/Homework/8/5/playbook/roles/vector-role') {
+                sh 'molecule test'
+                }
+            }
+        }
+
+        stage('Remove') {
+            steps {
+                dir('/opt/jenkins_agent/workspace/DeclarativePipelineJob'){
+                deleteDir()
+                }
+
+            }
+        }
+    }
+}
