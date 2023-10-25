@@ -10,7 +10,7 @@ pipeline {
         }
         stage('test') {
             steps {
-                dir('/opt/jenkins_agent/workspace/DeclarativePipelineJob/Homework/8/5/playbook/roles/vector-role') {
+                dir('./Homework/8/5/playbook/roles/vector-role') {
                 sh 'molecule test'
                 }
             }
@@ -18,9 +18,7 @@ pipeline {
 
         stage('Remove') {
             steps {
-                dir('/opt/jenkins_agent/workspace/DeclarativePipelineJob'){
                 deleteDir()
-                }
 
             }
         }

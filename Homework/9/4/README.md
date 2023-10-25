@@ -7,21 +7,21 @@
 3. Запустить и проверить работоспособность.
 4. Сделать первоначальную настройку.
 
- ![1]()
+ ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_4/1.png?raw=true)
 
 ## Основная часть
 
 1. Сделать Freestyle Job, который будет запускать `molecule test` из любого вашего репозитория с ролью.
 
- ![2]()
+ ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_4/2.png?raw=true)
 
 2. Сделать Declarative Pipeline Job, который будет запускать `molecule test` из любого вашего репозитория с ролью.
 
- ![3]()
+ ![3](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_4/3.png?raw=true)
 
 3. Перенести Declarative Pipeline в репозиторий в файл `Jenkinsfile`.
 
- [Jenkinsfile]()
+ [Jenkinsfile](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/9/4/Jenkinsfile)
 
 4. Создать Multibranch Pipeline на запуск `Jenkinsfile` из репозитория.
 
