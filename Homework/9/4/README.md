@@ -109,9 +109,9 @@ Finished: SUCCESS
 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
- [Vector-role](https://github.com/AVasMakarov/devops-netology/tree/main/Homework/8/5/playbook/roles/vector-role)
- [Declarative pipeline](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/9/4/Jenkinsfile)
- [Scripted Pipeline](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/9/4/ScriptedJenkinsfile)
+ [Vector-role](https://github.com/AVasMakarov/devops-netology/tree/main/Homework/8/5/playbook/roles/vector-role)  
+ [Declarative pipeline](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/9/4/Jenkinsfile)  
+ [Scripted Pipeline](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/9/4/ScriptedJenkinsfile)  
 
 9. Сопроводите процесс настройки скриншотами для каждого пункта задания!!
 
