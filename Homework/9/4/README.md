@@ -25,7 +25,7 @@
 
 4. Создать Multibranch Pipeline на запуск `Jenkinsfile` из репозитория.
 
- ![4]()
+ ![4](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_4/4.png?raw=true)
 
 5. Создать Scripted Pipeline, наполнить его скриптом из [pipeline](./pipeline).
 
@@ -104,14 +104,14 @@ Finished: SUCCESS
 
 6. Внести необходимые изменения, чтобы Pipeline запускал `ansible-playbook` без флагов `--check --diff`, если не установлен параметр при запуске джобы (prod_run = True). По умолчанию параметр имеет значение False и запускает прогон с флагами `--check --diff`.
 
- ![5]()
+ ![5](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_4/5.png?raw=true)
 
 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`.
 8. Отправить ссылку на репозиторий с ролью и Declarative Pipeline и Scripted Pipeline.
 
  [Vector-role](https://github.com/AVasMakarov/devops-netology/tree/main/Homework/8/5/playbook/roles/vector-role)
- [Declarative pipeline]()
- [Scripted Pipeline]()
+ [Declarative pipeline](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/9/4/Jenkinsfile)
+ [Scripted Pipeline](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/9/4/ScriptedJenkinsfile)
 
 9. Сопроводите процесс настройки скриншотами для каждого пункта задания!!
 
