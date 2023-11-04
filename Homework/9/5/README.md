@@ -37,7 +37,7 @@
 2. Текст с `{ "message": "Already started" }` на `{ "message": "Running"}`.
 3. Issue поставить label: feature.
 
- ![1]()
+ ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_5/1.png?raw=true)
 
 ### Developer
 
@@ -47,7 +47,7 @@
 2. Внести изменения по тексту из задания. 
 3. Подготовить Merge Request, влить необходимые изменения в `master`, проверить, что сборка прошла успешно.
  
- ![2]()
+ ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_5/2.png?raw=true)
 
 ### Tester
 
@@ -56,7 +56,7 @@
 1. Поднять докер-контейнер с образом `hello:gitlab-$CI_COMMIT_SHORT_SHA` и проверить возврат метода на корректность.
 2. Закрыть Issue с комментарием об успешности прохождения, указав желаемый результат и фактически достигнутый.
 
- ![3]()
+ ![3](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW9_5/3.png?raw=true)
 
 ## Итог
 
