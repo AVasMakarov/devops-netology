@@ -239,7 +239,7 @@ services:
 ```
 
 
- ![1]()
+ ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW10_2/1.png?raw=true)
 
 ## Задание 2
 
@@ -264,21 +264,21 @@ services:
 
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
 
- ![2]()
+ ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW10_2/2.png?raw=true)
 
 ## Задание 3
 
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
 1. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
 
- ![3]()
+ ![3](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW10_2/3.png?raw=true)
 
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 1. В качестве решения задания приведите листинг этого файла.
 
-[Ссылка]() на `JSON Model`
+[Ссылка](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/10/2/JSON%20Model) на `JSON Model`
 
 ---
 
