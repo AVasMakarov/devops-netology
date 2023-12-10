@@ -39,11 +39,11 @@ Filebeat следует сконфигурировать для отправки
 
 - скриншот `docker ps` через 5 минут после старта всех контейнеров (их должно быть 5);
 
- ![1]()
+ ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW10_3/1.png?raw=true)
 
 - скриншот интерфейса kibana;
 
- ![2]()
+ ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW10_3/2.png?raw=true)
 
 ## Задание 2
 
@@ -51,7 +51,7 @@ Filebeat следует сконфигурировать для отправки
 
 Перейдите в меню просмотра логов в kibana (Discover) и самостоятельно изучите, как отображаются логи и как производить поиск по логам.
 
- ![3]()
+ ![3](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW10_3/3.png?raw=true)
 
 В манифесте директории help также приведенно dummy-приложение, которое генерирует рандомные события в stdout-контейнера.
 Эти логи должны порождать индекс logstash-* в elasticsearch. Если этого индекса нет — воспользуйтесь советами и источниками из раздела «Дополнительные ссылки» этого задания.
