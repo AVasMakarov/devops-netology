@@ -73,8 +73,8 @@
 3. Подключиться к дашборду с помощью port-forward.
 
 
- ![2]()
- ![1]()
+ ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_1/2.png?raw=true)  
+ ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_1/1.png?raw=true)
 ------
 
 ### Правила приёма работы
