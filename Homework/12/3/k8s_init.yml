@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-init
+  labels:
+    app: nginx-init
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-init
+  template:
+    metadata:
+      labels:
+        app: nginx-init
+    spec:
+      containers:
+        - name: nginx-init
+          image: nginx:1.14.2
+      initContainers:
+        - name: busybox-init
+          image: busybox:1.28
+          command: ['sh', '-c', "until nslookup nginx-svc-init; do echo waiting for service; sleep 2; done"]
