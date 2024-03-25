@@ -26,7 +26,7 @@
 
 1. Создать Deployment приложения, состоящего из двух контейнеров — nginx и multitool. Решить возникшую ошибку.
 
-![1]()
+![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_3/1.png?raw=true)
 
 2. После запуска увеличить количество реплик работающего приложения до 2.
 
@@ -34,7 +34,7 @@
 
 3. Продемонстрировать количество подов до и после масштабирования.
 
-![2]()
+![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_3/2.png?raw=true)
 
 4. Создать Service, который обеспечит доступ до реплик приложений из п.1.
 
@@ -60,7 +60,7 @@ spec:
 
 5. Создать отдельный Pod с приложением multitool и убедиться с помощью `curl`, что из пода есть доступ до приложений из п.1.
 
-![3]()
+![3](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_3/3.png?raw=true)
 
 
 ------
@@ -72,7 +72,7 @@ spec:
 3. Создать и запустить Service. Убедиться, что Init запустился.
 4. Продемонстрировать состояние пода до и после запуска сервиса.
 
-![4]()
+![4](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_3/4.png?raw=true)
 
 ------
 
