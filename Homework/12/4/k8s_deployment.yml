@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
+              name: ngnix-port
+        - name: multitool
+          image: wbitt/network-multitool
+          env:                            # добавлено аналогично манифесту из лекции
+            - name: HTTP_PORT
+              value: "8080"
+          ports:
+            - containerPort: 8080
+              name: multi-port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-svc
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 9001
+      targetPort: ngnix-port
+    - name: http-multitool
+      protocol: TCP
+      port: 9002
+      targetPort: multi-port
+  selector:
+    app: nginx
