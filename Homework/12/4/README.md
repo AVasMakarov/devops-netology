@@ -30,9 +30,9 @@
 4. Продемонстрировать доступ с помощью `curl` по доменному имени сервиса.
 5. Предоставить манифесты Deployment и Service в решении, а также скриншоты или вывод команды п.4.
 
-> Deployment и Service в одном [манифесте]()  
-> Вывод
-![1]()
+> Deployment и Service в одном [манифесте](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/4/k8s_deployment.yml)  
+> Вывод  
+![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_4/1.png?raw=true)
 
 ------
 
@@ -40,12 +40,12 @@
 
 1. Создать отдельный Service приложения из Задания 1 с возможностью доступа снаружи кластера к nginx, используя тип NodePort.
 
-> [Манифест]()
+> [Манифест](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/4/k8s_external-svc.yml)
 
 2. Продемонстрировать доступ с помощью браузера или `curl` с локального компьютера.
 3. Предоставить манифест и Service в решении, а также скриншоты или вывод команды п.2.
 
-![2]()
+![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_4/2.png?raw=true)
 
 ------
 
