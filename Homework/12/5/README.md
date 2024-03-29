@@ -29,12 +29,12 @@
 2. Создать Deployment приложения _backend_ из образа multitool.
 3. Добавить Service, которые обеспечат доступ к обоим приложениям внутри кластера.
 
-> П. 1-3 включил в [манифест]()
+> П. 1-3 включил в [манифест](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/5/k8s_deployment.yml)
 
 4. Продемонстрировать, что приложения видят друг друга с помощью Service.
 5. Предоставить манифесты Deployment и Service в решении, а также скриншоты или вывод команды п.4.
 
-![1]()
+![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_5/1.png?raw=true)
 
 ------
 
@@ -46,12 +46,12 @@
 
 2. Создать Ingress, обеспечивающий доступ снаружи по IP-адресу кластера MicroK8S так, чтобы при запросе только по адресу открывался _frontend_ а при добавлении /api - _backend_.
 
-> Ingress [манифест]()
+> Ingress [манифест](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/5/k8s_ingress.yml)
 
 3. Продемонстрировать доступ с помощью браузера или `curl` с локального компьютера.
 4. Предоставить манифесты и скриншоты или вывод команды п.2.
 
-![2]()
+![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_5/2.png?raw=true)
 
 ------
 
