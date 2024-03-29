@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: dep-front
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dep-front
+  template:
+    metadata:
+      labels:
+        app: dep-front
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
+              name: ngnix-port
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: dep-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dep-back
+  template:
+    metadata:
+      labels:
+        app: dep-back
+    spec:
+      containers:
+        - name: multitool
+          image: wbitt/network-multitool
+          env:                            # добавлено аналогично манифесту из лекции
+            - name: HTTP_PORT
+              value: "8080"
+          ports:
+            - containerPort: 8080
+              name: multi-port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-front
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: ngnix-port
+  selector:
+    app: dep-front
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-back
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: multi-port
+  selector:
+    app: dep-back
