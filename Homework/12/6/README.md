@@ -34,9 +34,9 @@
 4. Продемонстрировать, что multitool может читать файл, который периодоически обновляется.
 5. Предоставить манифесты Deployment в решении, а также скриншоты или вывод команды из п. 4.
 
-> Сделал [манифест]()
+> Сделал [манифест](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/6/k8s_deployment.yml)
 > Проверка создания и чтения лог файла  
-> ![1]()
+> ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_6/1.png?raw=true)
 
 ------
 
@@ -51,9 +51,9 @@
 3. Продемонстрировать возможность чтения файла изнутри пода.
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 
-> Сделал [манифест]()
+> Сделал [манифест](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/6/k8s_daemonset.yml)
 > Проверка создания и чтения лог файла  
-> ![2]()
+> ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_6/2.png?raw=true)
 
 ------
 
