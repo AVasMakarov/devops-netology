@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfs-deployment
+  labels:
+    app: nfs-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nfs-deploy
+  template:
+    metadata:
+      labels:
+        app: nfs-deploy
+    spec:
+      containers:
+        - image: wbitt/network-multitool
+          volumeMounts:
+            - name: my-vol-pvc
+              mountPath: /static
+          imagePullPolicy: IfNotPresent
+          name: network-multitool
+          resources:
+            limits:
+              cpu: 200m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+      volumes:
+        - name: my-vol-pvc
+          persistentVolumeClaim:
+            claimName: my-pvc-nfs
