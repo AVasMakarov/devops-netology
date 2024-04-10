@@ -27,13 +27,13 @@
 1. Создать Deployment приложения, состоящего из контейнеров nginx и multitool.
 2. Решить возникшую проблему с помощью ConfigMap.
 
-> Манифесты [Deployment]()  и [ConfigMap]()
+> Манифесты [Deployment](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/8/k8s_deployment.yml)  и [ConfigMap](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/8/k8s_configmap.yml)
 
 3. Продемонстрировать, что pod стартовал и оба конейнера работают.
 4. Сделать простую веб-страницу и подключить её к Nginx с помощью ConfigMap. Подключить Service и показать вывод curl или в браузере.
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
-![1]()
+![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_8/1.png?raw=true)
 
 ------
 
@@ -45,8 +45,8 @@
 4. Создать Ingress и необходимый Service, подключить к нему SSL в вид. Продемонстировать доступ к приложению по HTTPS.
 4. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
-> Собрал все необходимое в одном [манифесте](), сертификат выпускал с помощью `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /ssl/netology-selfsigned.key -out /ssl/netology-selfsigned.crt`
-> ![2]()
+> Собрал все необходимое в одном [манифесте](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/8/k8s_nginx.yml), сертификат выпускал с помощью `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /ssl/netology-selfsigned.key -out /ssl/netology-selfsigned.crt`
+> ![2](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_8/2.png?raw=true)
 ------
 
 ### Правила приёма работы
