@@ -1,0 +1,128 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: ls7
+  labels:
+    app: ex-ssl
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+        - containerPort: 80
+          name: nginx-port
+      volumeMounts:
+        - name: index-volume
+          mountPath: /usr/share/nginx/html
+  volumes:
+    - name: index-volume
+      configMap:
+        name: index-nginx
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: index-nginx
+  namespace: ls7
+data:
+  index.html: |
+    IT'S MINE NGINX!!!
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+  namespace: ls7
+type: kubernetes.io/tls
+data:
+  tls.crt: |
+    MIIEAzCCAuugAwIBAgIUPYniy/v3u2cripy2baV20U+vIDEwDQYJKoZIhvcNAQEL
+    BQAwgZAxCzAJBgNVBAYTAlJVMRQwEgYDVQQIDAtWb2xvZ29za2F5YTEUMBIGA1UE
+    BwwLQ2hlcmVwb3ZldHMxDTALBgNVBAoMBGhvbWUxDTALBgNVBAsMBGhvbWUxFzAV
+    BgNVBAMMDjE5Mi4xNjguODYuMTg3MR4wHAYJKoZIhvcNAQkBFg9hZG1pbkBhZG1p
+    bi5jb20wHhcNMjQwNDA5MTMxOTI4WhcNMjUwNDA5MTMxOTI4WjCBkDELMAkGA1UE
+    BhMCUlUxFDASBgNVBAgMC1ZvbG9nb3NrYXlhMRQwEgYDVQQHDAtDaGVyZXBvdmV0
+    czENMAsGA1UECgwEaG9tZTENMAsGA1UECwwEaG9tZTEXMBUGA1UEAwwOMTkyLjE2
+    OC44Ni4xODcxHjAcBgkqhkiG9w0BCQEWD2FkbWluQGFkbWluLmNvbTCCASIwDQYJ
+    KoZIhvcNAQEBBQADggEPADCCAQoCggEBALuQoaYAjb7dgiD/RZIgZNZKacN1fUNF
+    TGO0huwXwuoSV2Ex9RZDHbVBgSJ2HEaZCDbEDazZ4YjFpe0Ms3qM7ktjLYbKZsYX
+    CIlDQGah8tIFlokSpLZeYb/K1VeQX7YpNzDhMMNrY8gV9b8onc4TJsB2o279cmMm
+    suZGe8zMNBbX2Zh5TufTpgtmhn9L9daStQg4wRVf0SaJDr7cCYpBmBddboUJ9BXV
+    /zV2N9JUZc+rNx2cNpaCVkQ9+zjt/MUwBy4uetBJqoFjEZcuT9PaebMc4Qs0fXOF
+    C1Mi2VA0jVADfQFw3E/gUvQIfWCtW2lIkBOfpiCI+haUVPxvF2P+GssCAwEAAaNT
+    MFEwHQYDVR0OBBYEFCruOROq09Gw2usuwqsMEUgsQRseMB8GA1UdIwQYMBaAFCru
+    OROq09Gw2usuwqsMEUgsQRseMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQEL
+    BQADggEBADwvKbq80wHUYObPcRXdwEPgD+8F6ZDqiFE+cN74uiqwyDfzdlcb5yQ5
+    IaSu83w3uAghLk9nfE/AUOGV4OGX/2jWC/GZnrfVGcz+wN7Qs/BNes+UudcbSkwO
+    uOhGjDjhqLb/SzABZucM98oE/RHl7yPOguju4J6ZjyOMIXxo2ATScb1vPD3mBSGH
+    sdefpzCzNNpBTD6VqNDeB7ti8Od0bVt4y1Uy9d742R4AJpG5jVF95HonEJ2d1SYj
+    vqriUCcFGPga1GxffIIc1Lj+xjYmYibGTTzNrZckFHC37lhD1fJoiBGcXaCUDQ5R
+    9AAXFlQl2eey4HHHQfVfM4PwgrvjQBc=
+  tls.key: |
+    MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7kKGmAI2+3YIg
+    /0WSIGTWSmnDdX1DRUxjtIbsF8LqEldhMfUWQx21QYEidhxGmQg2xA2s2eGIxaXt
+    DLN6jO5LYy2GymbGFwiJQ0BmofLSBZaJEqS2XmG/ytVXkF+2KTcw4TDDa2PIFfW/
+    KJ3OEybAdqNu/XJjJrLmRnvMzDQW19mYeU7n06YLZoZ/S/XWkrUIOMEVX9EmiQ6+
+    3AmKQZgXXW6FCfQV1f81djfSVGXPqzcdnDaWglZEPfs47fzFMAcuLnrQSaqBYxGX
+    Lk/T2nmzHOELNH1zhQtTItlQNI1QA30BcNxP4FL0CH1grVtpSJATn6YgiPoWlFT8
+    bxdj/hrLAgMBAAECggEAT2EuiGrDknt8jyp57xX2lxp3GFmo4cd6RNgqIdEMlLOe
+    d2wFJZ7R+9v1IviJjvdFGqhugTDU2mWLi39Mlhj+4Ljgk6MlS8CDxFPJ9aWkdm4W
+    /3v8aZIYHGtjTuOzHgzjZrRnRs00NYHVt0khQA2q4NlU4awxtPSz0fESg+IISYHl
+    so8vLLQJFi3TE8O9tu/tuTZ5YrBrZ1jcqmoV0jsxfu0031q+mHcnDIcF5qPIpT/U
+    V7L/TB3739xMXgM02Zadsrr9QUUuyTSGZgJnNyqt35ojqLmlSNErfrtzebgXfNbL
+    diKl1K/YOujKKrjpxGElTmQt0h74F3ol2l1xhKDCgQKBgQD20WC+AoKwFImKr5k+
+    jtlpey+5y3uwD6f1v+Ps9kX5UaBRwtjGSwrIAWSYKWB9ZHDPT+loFKR5xu97Mg/V
+    2R1oSedvKm0ymaymEozfGnD6phszqWCKOjs43LzDBb4gqIAxidFYmebrMtwkE8u6
+    gtbFN3ly+1PDQsuaoDUQJ8tC4wKBgQDCivInWAhS1VmvqyifjZjpHOipuUwvo0gj
+    0fBbOkJS2KdLdOLaxHblWxLbRQhxFd2mIMYDmxIjsLJwbOrTcJT0BAWfzbY4H4Ec
+    onRGxOnbG2exV8+JwkYqCVklFbVl47UiJU9czcWZRnF9Oj7YhqX7J6xArG/Sa6Z9
+    xUTrrI+E+QKBgDqlPWtohUz5VEUTvEHVB2u8zXZEFzuaPLpzweCIE9BNyN4kggV7
+    xzAGxLQzAK5Ks1NPFZKZdQtKbZTELGcPk6E4DjmnxxKC2TcMqVRJoBauaUA5Oqsd
+    cvzr1h4wuyBfaTZcHNYEm42/I/eejIXgmM97guwDM7/tmxs+fd0811spAoGBAKWa
+    ecAcJBm/G/V6Eb6gXoYx4ax42+3BZOt5Ds3ZrhOv8dk9ys7HZx6ehFK7VRBOuLtu
+    MqFnI+3VwFALp2oN7/44XkFGb9Menl2tvKVxglDN51sDkNuH0Qp/oq7658uwJsTG
+    VeR+FbMAUCN1rYHMPQarIup630WT9coiXyTvY8yhAoGAAWkFd0SAfuExdQVn0KGu
+    8bJeqHXbn0ZdNBbKgqWoShnYxDH9mDT8/x89Whz87+E0Ra3gLvIoSCYupcZWMT3F
+    KJ8GUAPLxahjuj00u0uUfjOaZtiMv60KULykYJQDh9FDe3dkx155uv5hYxsIP3AV
+    1Z7iNQfnNCxn4kWJ4bELebA=
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-ssl
+  namespace: ls7
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: nginx-port
+  selector:
+    app: ex-ssl
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-ssl
+  namespace: ls7
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: "nginx"
+  rules:
+    - host: makarov.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: svc-ssl
+                port:
+                  name: http
+  tls:
+  - hosts:
+    - makarov.example.com
+    secretName: my-secret
