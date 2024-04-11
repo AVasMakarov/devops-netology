@@ -66,9 +66,9 @@ Context "user" created.
 4. Предусмотрите права пользователя. Пользователь может просматривать логи подов и их конфигурацию (`kubectl logs pod <pod_id>`, `kubectl describe pod <pod_id>`).
 5. Предоставьте манифесты и скриншоты и/или вывод необходимых команд.
 
-> Настройка `role` и `role-binding` в [манифесте]()  
+> Настройка `role` и `role-binding` в [манифесте](https://github.com/AVasMakarov/devops-netology/blob/main/Homework/12/9/k8s_user.yml)  
 >   
-> ![1]()
+> ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW12_9/1.png?raw=true)
 ------
 
 ### Правила приёма работы
