@@ -1,0 +1,25 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: user-role
+  namespace: ls8
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "pods/logs"]
+    verbs: ["get", "list"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: user-rolebinding
+  namespace: ls8
+subjects:
+  - kind: User
+    name: user
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: user-role
+  apiGroup: rbac.authorization.k8s.io
