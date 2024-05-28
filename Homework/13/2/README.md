@@ -18,7 +18,7 @@
 - Положить в бакет файл с картинкой.
 - Сделать файл доступным из интернета.
 
-> [Манифест]() создания бакета
+> [Манифест](https://raw.githubusercontent.com/AVasMakarov/devops-netology/main/Homework/13/2/terraform/bucket.tf) создания бакета
 
 2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:
 
@@ -27,14 +27,14 @@
 - Разместить в стартовой веб-странице шаблонной ВМ ссылку на картинку из бакета.
 - Настроить проверку состояния ВМ.
 
-> [Маниест]() создания `Instance Group`
+> [Маниест](https://raw.githubusercontent.com/AVasMakarov/devops-netology/main/Homework/13/2/terraform/instance-group.tf) создания `Instance Group`
 
 3. Подключить группу к сетевому балансировщику:
 
 - Создать сетевой балансировщик.
 - Проверить работоспособность, удалив одну или несколько ВМ.
 
-> [Манифест]() создания балансировщика
+> [Манифест](https://raw.githubusercontent.com/AVasMakarov/devops-netology/main/Homework/13/2/terraform/loadbalancer.tf) создания балансировщика
 > 
 > Вывод `terrafonm apply`
 ```bash
@@ -47,7 +47,8 @@ bucket_domain_name = "http://am-2024-05-27.storage.yandexcloud.net/today.jpg"
 external_load_balancer_ip = "158.160.169.75"
 ```
 > Страница в браузере по адресу `http://158.160.169.75/`  
-> ![1]()
+> ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW15_2/1.png?raw=true)
+
 4. (дополнительно)* Создать Application Load Balancer с использованием Instance group и проверкой состояния.
 
 Полезные документы:
