@@ -47,7 +47,7 @@ bucket_domain_name = "http://am-2024-05-27.storage.yandexcloud.net/today.jpg"
 external_load_balancer_ip = "158.160.169.75"
 ```
 > Страница в браузере по адресу `http://158.160.169.75/`  
-> ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW15_2/1.png?raw=true)
+> ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW13_2/1.png?raw=true)
 
 4. (дополнительно)* Создать Application Load Balancer с использованием Instance group и проверкой состояния.
 
