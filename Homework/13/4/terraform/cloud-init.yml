@@ -1,0 +1,16 @@
+#cloud-config
+ssh_pwauth: yes
+users:
+  - name: ubuntu
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+chpasswd:
+  list: |
+    ubuntu:${passwd}
+  expire: False
+package_update: true
+package_upgrade: false
+packages:
+  - vim
+  - nginx
