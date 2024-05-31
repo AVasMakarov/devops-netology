@@ -77,7 +77,7 @@ kube-system   metrics-server       ClusterIP      10.96.137.206   <none>        
 phpmyadmin    phpmyadmin-service   LoadBalancer   10.96.250.229   158.160.171.51   80:31280/TCP             77s
 ```
 
- ![1]()
+ ![1](https://github.com/AVasMakarov/devops-netology/blob/main/Screenshots/HW13_4/1.png?raw=true)
 Полезные документы:
 
 - [MySQL cluster](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/mdb_mysql_cluster).
